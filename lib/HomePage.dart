@@ -1,7 +1,8 @@
-import 'package:drawer/CityGuidePage.dart';
-import 'package:drawer/DashBoard.dart';
-import 'package:drawer/ProfilePage.dart';
-import 'package:drawer/SearchPage.dart';
+import 'package:drawer/pages/AddFAB.dart';
+import 'package:drawer/pages/Map.dart';
+import 'package:drawer/pages/DashBoard.dart';
+import 'package:drawer/pages/Profile.dart';
+import 'package:drawer/pages/Search.dart';
 import 'package:drawer/pages/hakk%C4%B1m%C4%B1zda.dart';
 import 'package:drawer/pages/iletisim.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> screens = [
     DashBoard(),
     SearchPage(),
-    CityGuidePage(),
+    Map(),
     ProfilePage(),
   ];
 
@@ -35,7 +36,9 @@ class _HomePageState extends State<HomePage> {
       //Add Floating Bar
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {  },),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddFAB()));
+        },),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       //bottomNavBAR
@@ -87,14 +90,14 @@ class _HomePageState extends State<HomePage> {
                   minWidth:40,
                   onPressed: (){
                     setState(() {
-                      currentScreen = CityGuidePage();
+                      currentScreen = Map();
                       currentTab = 2;
                     });},
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.map, color: currentTab == 2 ? Colors.indigoAccent[100]: Colors.grey,),
-                      Text("CityGuide", style: TextStyle(color: currentTab == 2 ? Colors.indigoAccent[100]:Colors.grey,),),
+                      Text("Map", style: TextStyle(color: currentTab == 2 ? Colors.indigoAccent[100]:Colors.grey,),),
                     ],),),
                 MaterialButton(
                   minWidth:40,
@@ -116,7 +119,7 @@ class _HomePageState extends State<HomePage> {
       ),
 
       appBar: AppBar(
-        title: Text("dnm"),
+        title: Text("drawer template"),
       ),
       drawer: Drawer(
         child: Container(
@@ -128,8 +131,8 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Image.asset("assets/user.png",color: Colors.white,),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
+                    const Padding(
+                      padding: EdgeInsets.all(15.0),
                       child: Text("@username",style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

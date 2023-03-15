@@ -11,10 +11,11 @@ class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("DashBoard",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
+      body: Center(
+          child: Text(
+        "Homepage",
+        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      )),
     );
-
-
-
   }
 }
